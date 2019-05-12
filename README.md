@@ -1,4 +1,5 @@
-# A LED-Effect for LED-Master - Meteor Shower (inspired by [Tweaking4All](https://www.tweaking4all.com/hardware/arduino/arduino-all-ledstrip-effects-in-one/))
+# A LED-Effect for LED-Master - Meteor Shower
+## (inspired by [Tweaking4All](https://www.tweaking4all.com/hardware/arduino/arduino-all-ledstrip-effects-in-one/))
 
 
 ## Overview
