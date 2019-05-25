@@ -30,7 +30,7 @@ static meteor_data *mgos_internal_meteor_shower_init(mgos_rgbleds* leds)
         curr_md->meteor_trail_decay = mgos_sys_config_get_ledeffects_meteor_shower_trail_decay();
         curr_md->meteor_random_decay = mgos_sys_config_get_ledeffects_meteor_shower_random_decay();
     }
-    mgos_rgbleds_clear(leds);
+    mgos_universal_led_clear(leds);
 
     return new_md_pool;
 }
@@ -46,7 +46,7 @@ static void *mgos_internal_meteor_shower_exit(mgos_rgbleds* leds, meteor_data* c
 
 static void mgos_internal_fade_to_black(mgos_rgbleds* leds, int led_x, int led_y, double fade_value)
 {
-    tools_rgb_data old_color = mgos_rgbleds_get_from_pos(leds, led_x, led_y, NULL, 0);
+    tools_rgb_data old_color = mgos_universal_led_get_from_pos(leds, led_x, led_y, NULL, 0);
     tools_rgb_data new_color = old_color;
 
     double h, s, v;
@@ -55,7 +55,7 @@ static void mgos_internal_fade_to_black(mgos_rgbleds* leds, int led_x, int led_y
     v = v * fade_value;
     new_color = tools_hsv_to_rgb(h, s, v);
 
-    mgos_rgbleds_plot_pixel(leds, led_x, leds->panel_height - 1 - led_y, new_color, false);
+    mgos_universal_led_plot_pixel(leds, led_x, leds->panel_height - 1 - led_y, new_color, false);
 }
 
 static void mgos_internal_meteor_shower_loop(mgos_rgbleds* leds)
@@ -87,12 +87,12 @@ static void mgos_internal_meteor_shower_loop(mgos_rgbleds* leds)
         for (int j = 0; j < curr_md->meteor_size; j++) {
             int pos = num_rows - (loop - j);
             if (pos >= 0 && pos < num_rows) {
-                mgos_rgbleds_plot_pixel(leds, x, leds->panel_height - 1 - pos, curr_md->out_pix, false);
+                mgos_universal_led_plot_pixel(leds, x, leds->panel_height - 1 - pos, curr_md->out_pix, false);
             }
         }
     }
 
-    mgos_rgbleds_show(leds);
+    mgos_universal_led_show(leds);
      
 }
 
