@@ -124,7 +124,7 @@ void mgos_ledeffects_meteor_shower(void* param, mgos_rgbleds_action action)
     }
 }
 
-bool mgos_meteor_shower_init(void) {
+bool mgos_ledeffects_meteor_shower_init(void) {
   LOG(LL_INFO, ("mgos_meteor_shower_init ..."));
   ledmaster_add_effect("ANIM_METEOR_SHOWER", mgos_ledeffects_meteor_shower);
   return true;
